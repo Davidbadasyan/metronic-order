@@ -1,15 +1,8 @@
 <template>
-  <i
-    :class="`ki-${currentIconType} ki-${props.iconName}${
-      props.iconClass ? ' ' + props.iconClass : ''
-    }`"
-  >
+  <i :class="`ki-${currentIconType} ki-${props.iconName}${props.iconClass ? ' ' + props.iconClass : ''
+    }`">
     <template v-if="icons[props.iconName] && currentIconType === 'duotone'">
-      <span
-        v-for="i in icons[props.iconName]"
-        :key="i"
-        :class="`path${i}`"
-      ></span>
+      <span v-for="i in icons[props.iconName]" :key="i" :class="`path${i}`"></span>
     </template>
   </i>
 </template>

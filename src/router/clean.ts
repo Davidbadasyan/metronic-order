@@ -36,7 +36,7 @@ const routes: Array<RouteRecordRaw> = [
         path: "/sign-in",
         name: "sign-in",
         component: () =>
-        // @ts-ignore
+          // @ts-ignore
           import("@/views/crafted/authentication/basic-flow/SignIn.vue"),
         meta: {
           pageTitle: "Sign In",
@@ -46,7 +46,7 @@ const routes: Array<RouteRecordRaw> = [
         path: "/sign-up",
         name: "sign-up",
         component: () =>
-        // @ts-ignore
+          // @ts-ignore
           import("@/views/crafted/authentication/basic-flow/SignUp.vue"),
         meta: {
           pageTitle: "Sign Up",
@@ -56,7 +56,7 @@ const routes: Array<RouteRecordRaw> = [
         path: "/password-reset",
         name: "password-reset",
         component: () =>
-        // @ts-ignore
+          // @ts-ignore
           import("@/views/crafted/authentication/basic-flow/PasswordReset.vue"),
         meta: {
           pageTitle: "Password reset",
