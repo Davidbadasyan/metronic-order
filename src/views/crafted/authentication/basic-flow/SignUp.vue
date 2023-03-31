@@ -2,13 +2,8 @@
   <!--begin::Wrapper-->
   <div class="w-lg-500px p-10">
     <!--begin::Form-->
-    <VForm
-      class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework"
-      novalidate
-      @submit="onSubmitRegister"
-      id="kt_login_signup_form"
-      :validation-schema="registration"
-    >
+    <VForm class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate @submit="onSubmitRegister"
+      id="kt_login_signup_form" :validation-schema="registration">
       <!--begin::Heading-->
       <div class="mb-10 text-center">
         <!--begin::Title-->
@@ -28,14 +23,6 @@
       <!--end::Heading-->
 
       <!--begin::Action-->
-      <button type="button" class="btn btn-light-primary fw-bold w-100 mb-10">
-        <img
-          alt="Logo"
-          :src="getAssetPath('media/svg/brand-logos/google-icon.svg')"
-          class="h-20px me-3"
-        />
-        Sign in with Google
-      </button>
       <!--end::Action-->
 
       <!--begin::Separator-->
@@ -51,13 +38,8 @@
         <!--begin::Col-->
         <div class="col-xl-6">
           <label class="form-label fw-bold text-dark fs-6">First Name</label>
-          <Field
-            class="form-control form-control-lg form-control-solid"
-            type="text"
-            placeholder=""
-            name="first_name"
-            autocomplete="off"
-          />
+          <Field class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="first_name"
+            autocomplete="off" />
           <div class="fv-plugins-message-container">
             <div class="fv-help-block">
               <ErrorMessage name="first_name" />
@@ -69,13 +51,8 @@
         <!--begin::Col-->
         <div class="col-xl-6">
           <label class="form-label fw-bold text-dark fs-6">Last Name</label>
-          <Field
-            class="form-control form-control-lg form-control-solid"
-            type="text"
-            placeholder=""
-            name="last_name"
-            autocomplete="off"
-          />
+          <Field class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="last_name"
+            autocomplete="off" />
           <div class="fv-plugins-message-container">
             <div class="fv-help-block">
               <ErrorMessage name="last_name" />
@@ -89,13 +66,8 @@
       <!--begin::Input group-->
       <div class="fv-row mb-7">
         <label class="form-label fw-bold text-dark fs-6">Email</label>
-        <Field
-          class="form-control form-control-lg form-control-solid"
-          type="email"
-          placeholder=""
-          name="email"
-          autocomplete="off"
-        />
+        <Field class="form-control form-control-lg form-control-solid" type="email" placeholder="" name="email"
+          autocomplete="off" />
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
             <ErrorMessage name="email" />
@@ -114,13 +86,8 @@
 
           <!--begin::Input wrapper-->
           <div class="position-relative mb-3">
-            <Field
-              class="form-control form-control-lg form-control-solid"
-              type="password"
-              placeholder=""
-              name="password"
-              autocomplete="off"
-            />
+            <Field class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password"
+              autocomplete="off" />
             <div class="fv-plugins-message-container">
               <div class="fv-help-block">
                 <ErrorMessage name="password" />
@@ -129,22 +96,11 @@
           </div>
           <!--end::Input wrapper-->
           <!--begin::Meter-->
-          <div
-            class="d-flex align-items-center mb-3"
-            data-kt-password-meter-control="highlight"
-          >
-            <div
-              class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"
-            ></div>
-            <div
-              class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"
-            ></div>
-            <div
-              class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"
-            ></div>
-            <div
-              class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"
-            ></div>
+          <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+            <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+            <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+            <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+            <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
           </div>
           <!--end::Meter-->
         </div>
@@ -159,16 +115,9 @@
 
       <!--begin::Input group-->
       <div class="fv-row mb-5">
-        <label class="form-label fw-bold text-dark fs-6"
-          >Confirm Password</label
-        >
-        <Field
-          class="form-control form-control-lg form-control-solid"
-          type="password"
-          placeholder=""
-          name="password_confirmation"
-          autocomplete="off"
-        />
+        <label class="form-label fw-bold text-dark fs-6">Confirm Password</label>
+        <Field class="form-control form-control-lg form-control-solid" type="password" placeholder=""
+          name="password_confirmation" autocomplete="off" />
         <div class="fv-plugins-message-container">
           <div class="fv-help-block">
             <ErrorMessage name="password_confirmation" />
@@ -180,12 +129,7 @@
       <!--begin::Input group-->
       <div class="fv-row mb-10">
         <label class="form-check form-check-custom form-check-solid">
-          <Field
-            class="form-check-input"
-            type="checkbox"
-            name="toc"
-            value="1"
-          />
+          <Field class="form-check-input" type="checkbox" name="toc" value="1" />
           <span class="form-check-label fw-semobold text-gray-700 fs-6">
             I Agree &
             <a href="#" class="ms-1 link-primary">Terms and conditions</a>.
@@ -196,18 +140,11 @@
 
       <!--begin::Actions-->
       <div class="text-center">
-        <button
-          id="kt_sign_up_submit"
-          ref="submitButton"
-          type="submit"
-          class="btn btn-lg btn-primary"
-        >
+        <button id="kt_sign_up_submit" ref="submitButton" type="submit" class="btn btn-lg btn-primary">
           <span class="indicator-label"> Submit </span>
           <span class="indicator-progress">
             Please wait...
-            <span
-              class="spinner-border spinner-border-sm align-middle ms-2"
-            ></span>
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
           </span>
         </button>
       </div>
