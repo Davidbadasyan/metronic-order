@@ -4,8 +4,8 @@ import ApiService from "@/core/services/ApiService";
 import JwtService from "@/core/services/JwtService";
 
 export interface User {
-  name: string;
-  surname: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
   api_token: string;
@@ -35,9 +35,18 @@ export const useAuthStore = defineStore("auth", () => {
   }
 
   function login(credentials: User) {
-    return ApiService.post("login", credentials)
+    const params = {
+      'client_id': 'webClient',
+      'client_secret': 'webClientSecret',
+      'grant_type': 'password',
+      'username': credentials.email,
+      'password': credentials.password
+    };
+    return ApiService.post('identity/connect/token', params, false, 'application/x-www-form-urlencoded;charset=utf-8')
       .then(({ data }) => {
-        setAuth(data);
+        isAuthenticated.value = true;
+        JwtService.saveToken(data.access_token);
+
       })
       .catch(({ response }) => {
         setError(response.data.errors);
@@ -49,10 +58,8 @@ export const useAuthStore = defineStore("auth", () => {
   }
 
   function register(credentials: User) {
-    return ApiService.post("register", credentials)
-      .then(({ data }) => {
-        setAuth(data);
-      })
+    return ApiService.post("users/register", credentials)
+      .then(({ data }) => data)
       .catch(({ response }) => {
         setError(response.data.errors);
       });
@@ -71,14 +78,14 @@ export const useAuthStore = defineStore("auth", () => {
   function verifyAuth() {
     if (JwtService.getToken()) {
       ApiService.setHeader();
-      ApiService.post("verify_token", { api_token: JwtService.getToken() })
-        .then(({ data }) => {
-          setAuth(data);
-        })
-        .catch(({ response }) => {
-          setError(response.data.errors);
-          purgeAuth();
-        });
+      // ApiService.post("verify_token", { api_token: JwtService.getToken() })
+      //   .then(({ data }) => {
+      //     setAuth(data);
+      //   })
+      //   .catch(({ response }) => {
+      //     setError(response.data.errors);
+      //     purgeAuth();
+      //   });
     } else {
       purgeAuth();
     }

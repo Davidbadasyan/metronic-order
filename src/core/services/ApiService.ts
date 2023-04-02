@@ -29,7 +29,7 @@ class ApiService {
   public static setHeader(): void {
     ApiService.vueInstance.axios.defaults.headers.common[
       "Authorization"
-    ] = `Token ${JwtService.getToken()}`;
+    ] = `Bearer ${JwtService.getToken()}`;
     ApiService.vueInstance.axios.defaults.headers.common["Accept"] =
       "application/json";
   }
@@ -63,8 +63,12 @@ class ApiService {
    * @param params: AxiosRequestConfig
    * @returns Promise<AxiosResponse>
    */
-  public static post(resource: string, params: any): Promise<AxiosResponse> {
-    return ApiService.vueInstance.axios.post(`${resource}`, params);
+  public static post(resource: string, params: any, authenticate: boolean = true, contentType: string = 'application/json'): Promise<AxiosResponse> {
+    const headers = {
+      'content-type': contentType,
+      ...(authenticate && { 'Authorization': 'Bearer ' + JwtService.getToken() })
+    };
+    return ApiService.vueInstance.axios.post(`${resource}`, params, { headers });
   }
 
   /**

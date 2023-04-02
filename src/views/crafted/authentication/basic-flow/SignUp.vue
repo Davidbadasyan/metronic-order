@@ -38,11 +38,11 @@
         <!--begin::Col-->
         <div class="col-xl-6">
           <label class="form-label fw-bold text-dark fs-6">First Name</label>
-          <Field class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="first_name"
+          <Field class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="firstName"
             autocomplete="off" />
           <div class="fv-plugins-message-container">
             <div class="fv-help-block">
-              <ErrorMessage name="first_name" />
+              <ErrorMessage name="firstName" />
             </div>
           </div>
         </div>
@@ -51,11 +51,11 @@
         <!--begin::Col-->
         <div class="col-xl-6">
           <label class="form-label fw-bold text-dark fs-6">Last Name</label>
-          <Field class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="last_name"
+          <Field class="form-control form-control-lg form-control-solid" type="text" placeholder="" name="lastName"
             autocomplete="off" />
           <div class="fv-plugins-message-container">
             <div class="fv-help-block">
-              <ErrorMessage name="last_name" />
+              <ErrorMessage name="lastName" />
             </div>
           </div>
         </div>
@@ -179,8 +179,8 @@ export default defineComponent({
     const submitButton = ref<HTMLButtonElement | null>(null);
 
     const registration = Yup.object().shape({
-      first_name: Yup.string().required().label("Name"),
-      last_name: Yup.string().required().label("Surname"),
+      firstName: Yup.string().required().label("Name"),
+      lastName: Yup.string().required().label("Surname"),
       email: Yup.string().min(4).required().email().label("Email"),
       password: Yup.string().required().label("Password"),
       password_confirmation: Yup.string()
@@ -208,13 +208,13 @@ export default defineComponent({
       submitButton.value?.setAttribute("data-kt-indicator", "on");
 
       // Send login request
-      await store.register(values);
+      const res = await store.register(values);
+      console.log(res);
 
-      const error = Object.values(store.errors);
 
-      if (!error) {
+      if (res.data) {
         Swal.fire({
-          text: "You have successfully logged in!",
+          text: "You have successfully registered!",
           icon: "success",
           buttonsStyling: false,
           confirmButtonText: "Ok, got it!",
@@ -224,11 +224,11 @@ export default defineComponent({
           },
         }).then(function () {
           // Go to page after successfully login
-          router.push({ name: "dashboard" });
+          router.push({ name: "sign-in" });
         });
       } else {
         Swal.fire({
-          text: error[0] as string,
+          text: res.data?.message,
           icon: "error",
           buttonsStyling: false,
           confirmButtonText: "Try again!",

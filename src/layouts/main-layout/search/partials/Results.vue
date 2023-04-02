@@ -6,10 +6,7 @@
       <h3 class="fs-5 text-muted m-0 pb-5">Users</h3>
       <!--end::Category title-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <img :src="getAssetPath('media/avatars/300-6.jpg')" alt="" />
@@ -24,10 +21,7 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <img :src="getAssetPath('media/avatars/300-2.jpg')" alt="" />
@@ -42,10 +36,7 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <img :src="getAssetPath('media/avatars/300-9.jpg')" alt="" />
@@ -60,10 +51,7 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <img :src="getAssetPath('media/avatars/300-14.jpg')" alt="" />
@@ -78,10 +66,7 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <img :src="getAssetPath('media/avatars/300-11.jpg')" alt="" />
@@ -99,18 +84,11 @@
       <h3 class="fs-5 text-muted m-0 pt-5 pb-5">Customers</h3>
       <!--end::Category title-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">
-            <img
-              class="w-20px h-20px"
-              :src="getAssetPath('media/svg/brand-logos/volicity-9.svg')"
-              alt=""
-            />
+            <img class="w-20px h-20px" :src="getAssetPath('media/svg/brand-logos/volicity-9.svg')" alt="" />
           </span>
         </div>
         <!--end::Symbol-->
@@ -123,18 +101,11 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">
-            <img
-              class="w-20px h-20px"
-              :src="getAssetPath('media/svg/brand-logos/tvit.svg')"
-              alt=""
-            />
+            <img class="w-20px h-20px" :src="getAssetPath('media/svg/brand-logos/tvit.svg')" alt="" />
           </span>
         </div>
         <!--end::Symbol-->
@@ -147,18 +118,11 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">
-            <img
-              class="w-20px h-20px"
-              :src="getAssetPath('media/svg/misc/infography.svg')"
-              alt=""
-            />
+            <img class="w-20px h-20px" :src="getAssetPath('media/svg/misc/infography.svg')" alt="" />
           </span>
         </div>
         <!--end::Symbol-->
@@ -171,18 +135,11 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">
-            <img
-              class="w-20px h-20px"
-              :src="getAssetPath('media/svg/brand-logos/leaf.svg')"
-              alt=""
-            />
+            <img class="w-20px h-20px" :src="getAssetPath('media/svg/brand-logos/leaf.svg')" alt="" />
           </span>
         </div>
         <!--end::Symbol-->
@@ -195,18 +152,11 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">
-            <img
-              class="w-20px h-20px"
-              :src="getAssetPath('media/svg/brand-logos/tower.svg')"
-              alt=""
-            />
+            <img class="w-20px h-20px" :src="getAssetPath('media/svg/brand-logos/tower.svg')" alt="" />
           </span>
         </div>
         <!--end::Symbol-->
@@ -222,10 +172,7 @@
       <h3 class="fs-5 text-muted m-0 pt-5 pb-5">Projects</h3>
       <!--end::Category title-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">
@@ -242,10 +189,7 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">
@@ -262,10 +206,7 @@
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">
@@ -275,19 +216,14 @@
         <!--end::Symbol-->
         <!--begin::Title-->
         <div class="d-flex flex-column">
-          <span class="fs-6 fw-semobold"
-            >Finance Monitoring SAAS Discussion</span
-          >
+          <span class="fs-6 fw-semobold">Finance Monitoring SAAS Discussion</span>
           <span class="fs-7 fw-semobold text-muted">#21090</span>
         </div>
         <!--end::Title-->
       </a>
       <!--end::Item-->
       <!--begin::Item-->
-      <a
-        href="#"
-        class="d-flex text-dark text-hover-primary align-items-center mb-5"
-      >
+      <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
         <!--begin::Symbol-->
         <div class="symbol symbol-40px symbol-circle me-4">
           <span class="symbol-label bg-light">

@@ -3,7 +3,7 @@
   <div class="w-lg-500px p-10">
     <!--begin::Form-->
     <VForm class="form w-100" id="kt_login_signin_form" @submit="onSubmitLogin" :validation-schema="login"
-      :initial-values="{ email: 'admin@demo.com', password: 'demo' }">
+      :initial-values="{ email: 'foo@boo.com', password: 'Aa!12345' }">
       <!--begin::Heading-->
       <div class="text-center mb-10">
         <!--begin::Title-->
@@ -21,13 +21,6 @@
         <!--end::Link-->
       </div>
       <!--begin::Heading-->
-
-      <div class="mb-10 bg-light-info p-8 rounded">
-        <div class="text-info">
-          Use account <strong>admin@demo.com</strong> and password
-          <strong>demo</strong> to continue.
-        </div>
-      </div>
 
       <!--begin::Input group-->
       <div class="fv-row mb-10">
@@ -128,6 +121,7 @@ import { useAuthStore, type User } from "@/stores/auth";
 import { useRouter } from "vue-router";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import * as Yup from "yup";
+import JwtService from "@/core/services/JwtService";
 
 export default defineComponent({
   name: "sign-in",
@@ -163,25 +157,13 @@ export default defineComponent({
 
       // Send login request
       await store.login(values);
-      const error = Object.values(store.errors);
-
-      if (error.length === 0) {
-        Swal.fire({
-          text: "You have successfully logged in!",
-          icon: "success",
-          buttonsStyling: false,
-          confirmButtonText: "Ok, got it!",
-          heightAuto: false,
-          customClass: {
-            confirmButton: "btn fw-semobold btn-light-primary",
-          },
-        }).then(() => {
-          // Go to page after successfully login
-          router.push({ name: "dashboard" });
-        });
+      // const error = Object.values(store.errors);
+      const token = JwtService.getToken()
+      if (token != null) {
+        router.push({ name: "dashboard" });
       } else {
         Swal.fire({
-          text: error[0] as string,
+          text: 'login failed',
           icon: "error",
           buttonsStyling: false,
           confirmButtonText: "Try again!",
