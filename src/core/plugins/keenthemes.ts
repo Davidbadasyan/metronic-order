@@ -8,6 +8,7 @@ import {
 } from "@/assets/ts/components";
 import { ThemeModeComponent } from "@/assets/ts/layout";
 import type { App } from "vue";
+  // @ts-ignore
 import KTIcon from "@/core/helpers/kt-icon/KTIcon.vue";
 
 /**

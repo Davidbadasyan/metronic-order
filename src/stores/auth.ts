@@ -46,10 +46,9 @@ export const useAuthStore = defineStore("auth", () => {
       .then(({ data }) => {
         isAuthenticated.value = true;
         JwtService.saveToken(data.access_token);
-
       })
       .catch(({ response }) => {
-        setError(response.data.errors);
+        setError(response.data?.message);
       });
   }
 

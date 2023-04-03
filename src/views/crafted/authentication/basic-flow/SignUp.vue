@@ -209,9 +209,6 @@ export default defineComponent({
 
       // Send login request
       const res = await store.register(values);
-      console.log(res);
-
-
       if (res.data) {
         Swal.fire({
           text: "You have successfully registered!",
