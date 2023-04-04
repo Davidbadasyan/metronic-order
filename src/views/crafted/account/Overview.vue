@@ -137,16 +137,14 @@
       </div>
       <!--end::Input group-->
 
-      <div
+      <!-- <div
         class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6"
       >
         <KTIcon
           icon-name="information-5"
           icon-class="fs-2tx text-warning me-4"
         />
-        <!--begin::Wrapper-->
         <div class="d-flex flex-stack flex-grow-1">
-          <!--begin::Content-->
           <div class="fw-semobold">
             <h4 class="text-gray-800 fw-bold">We need your attention!</h4>
 
@@ -155,10 +153,8 @@
               <a class="fw-bold" href="#">Add Payment Method</a>.
             </div>
           </div>
-          <!--end::Content-->
         </div>
-        <!--end::Wrapper-->
-      </div>
+      </div> -->
     </div>
     <!--end::Card body-->
   </div>
@@ -167,19 +163,19 @@
   <!--begin::Row-->
   <div class="row gy-10 gx-xl-10">
     <!--begin::Col-->
-    <div class="col-xl-6">
+    <!-- <div class="col-xl-6">
       <KTChartWidget1
         widget-classes="card-xxl-stretch mb-5 mb-xl-10"
       ></KTChartWidget1>
-    </div>
+    </div> -->
     <!--end::Col-->
 
     <!--begin::Col-->
-    <div class="col-xl-6">
+    <!-- <div class="col-xl-6">
       <KTListWidget1
         widget-classes="card-xxl-stretch mb-5 mb-xl-10'"
       ></KTListWidget1>
-    </div>
+    </div> -->
     <!--end::Col-->
   </div>
   <!--end::Row-->
@@ -187,19 +183,19 @@
   <!--begin::Row-->
   <div class="row gy-10 gx-xl-10">
     <!--begin::Col-->
-    <div class="col-xl-6">
+    <!-- <div class="col-xl-6">
       <KTListWidget5
         widget-classes="card-xxl-stretch mb-5 mb-xl-10"
       ></KTListWidget5>
-    </div>
+    </div> -->
     <!--end::Col-->
 
     <!--begin::Col-->
-    <div class="col-xl-6">
+    <!-- <div class="col-xl-6">
       <KTTableWidget5
         widget-classes="card-xxl-stretch mb-5 mb-xl-10"
       ></KTTableWidget5>
-    </div>
+    </div> -->
     <!--end::Col-->
   </div>
   <!--end::Row-->

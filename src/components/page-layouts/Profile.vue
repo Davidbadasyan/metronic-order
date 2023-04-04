@@ -240,7 +240,7 @@
           </li>
           <!--end::Nav item-->
           <!--begin::Nav item-->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               class="nav-link text-active-primary me-6"
               to="/crafted/pages/profile/projects"
@@ -248,10 +248,10 @@
             >
               Projects
             </router-link>
-          </li>
+          </li> -->
           <!--end::Nav item-->
           <!--begin::Nav item-->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               class="nav-link text-active-primary me-6"
               to="/crafted/pages/profile/campaigns"
@@ -259,10 +259,10 @@
             >
               Campaigns
             </router-link>
-          </li>
+          </li> -->
           <!--end::Nav item-->
           <!--begin::Nav item-->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               class="nav-link text-active-primary me-6"
               to="/crafted/pages/profile/documents"
@@ -270,10 +270,10 @@
             >
               Documents
             </router-link>
-          </li>
+          </li> -->
           <!--end::Nav item-->
           <!--begin::Nav item-->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               class="nav-link text-active-primary me-6"
               to="/crafted/pages/profile/connections"
@@ -281,16 +281,25 @@
             >
               Connections
             </router-link>
-          </li>
+          </li> -->
           <!--end::Nav item-->
           <!--begin::Nav item-->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               class="nav-link text-active-primary me-6"
               to="/crafted/pages/profile/activity"
               active-class="active"
             >
               Activity
+            </router-link>
+          </li> -->
+          <li class="nav-item">
+            <router-link
+              class="nav-link text-active-primary me-6"
+              to="/crafted/pages/profile/orders"
+              active-class="active"
+            >
+              Orders
             </router-link>
           </li>
           <!--end::Nav item-->

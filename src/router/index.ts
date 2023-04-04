@@ -106,6 +106,16 @@ const routes: Array<RouteRecordRaw> = [
               pageTitle: "Activity",
             },
           },
+          {
+            path: "orders",
+            name: "orders",
+            component: () =>
+            // @ts-ignore
+              import("@/views/crafted/pages/profile/Orders.vue"),
+            meta: {
+              pageTitle: "Orders",
+            },
+          },
         ],
       },
       {
@@ -241,36 +251,36 @@ const routes: Array<RouteRecordRaw> = [
           breadcrumbs: ["Apps"],
         },
       },
-      {
-        path: "/apps/chat/private-chat",
-        name: "apps-private-chat",
-        // @ts-ignore
-        component: () => import("@/views/apps/chat/Chat.vue"),
-        meta: {
-          pageTitle: "Private Chat",
-          breadcrumbs: ["Apps", "Chat"],
-        },
-      },
-      {
-        path: "/apps/chat/group-chat",
-        name: "apps-group-chat",
-        // @ts-ignore
-        component: () => import("@/views/apps/chat/Chat.vue"),
-        meta: {
-          pageTitle: "Group Chat",
-          breadcrumbs: ["Apps", "Chat"],
-        },
-      },
-      {
-        path: "/apps/chat/drawer-chat",
-        name: "apps-drawer-chat",
-        // @ts-ignore
-        component: () => import("@/views/apps/chat/DrawerChat.vue"),
-        meta: {
-          pageTitle: "Drawer Chat",
-          breadcrumbs: ["Apps", "Chat"],
-        },
-      },
+      // {
+      //   path: "/apps/chat/private-chat",
+      //   name: "apps-private-chat",
+      //   // @ts-ignore
+      //   component: () => import("@/views/apps/chat/Chat.vue"),
+      //   meta: {
+      //     pageTitle: "Private Chat",
+      //     breadcrumbs: ["Apps", "Chat"],
+      //   },
+      // },
+      // {
+      //   path: "/apps/chat/group-chat",
+      //   name: "apps-group-chat",
+      //   // @ts-ignore
+      //   component: () => import("@/views/apps/chat/Chat.vue"),
+      //   meta: {
+      //     pageTitle: "Group Chat",
+      //     breadcrumbs: ["Apps", "Chat"],
+      //   },
+      // },
+      // {
+      //   path: "/apps/chat/drawer-chat",
+      //   name: "apps-drawer-chat",
+      //   // @ts-ignore
+      //   component: () => import("@/views/apps/chat/DrawerChat.vue"),
+      //   meta: {
+      //     pageTitle: "Drawer Chat",
+      //     breadcrumbs: ["Apps", "Chat"],
+      //   },
+      // },
       {
         path: "/crafted/modals/general/invite-friends",
         name: "modals-general-invite-friends",
