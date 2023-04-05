@@ -229,7 +229,7 @@
           class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold flex-nowrap"
         >
           <!--begin::Nav item-->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               to="/crafted/pages/profile/overview"
               class="nav-link text-active-primary me-6"
@@ -237,7 +237,7 @@
             >
               Overview
             </router-link>
-          </li>
+          </li> -->
           <!--end::Nav item-->
           <!--begin::Nav item-->
           <!-- <li class="nav-item">

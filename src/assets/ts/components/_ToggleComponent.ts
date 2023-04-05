@@ -163,7 +163,6 @@ class ToggleComponent {
 
   // Event API
   public on = (name: string, handler: Function) => {
-    console.log("on", this.element, name, handler);
     return EventHandlerUtil.on(this.element, name, handler);
   };
 
@@ -172,12 +171,10 @@ class ToggleComponent {
   };
 
   public off = (name: string, handlerId: string) => {
-    console.log("off", this.element, name, handlerId);
     return EventHandlerUtil.off(this.element, name, handlerId);
   };
 
   public trigger = (name: string, event?: Event) => {
-    console.log("trigger", this.element, name, event);
     return EventHandlerUtil.trigger(this.element, name, event);
   };
 

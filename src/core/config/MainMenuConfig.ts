@@ -40,9 +40,13 @@ const MainMenuConfig: Array<MenuItem> = [
             route: "/profile",
             sub: [
               {
-                heading: "profileOverview",
-                route: "/crafted/pages/profile/overview",
+                heading: "Orders",
+                route: "/crafted/pages/profile/orders",
               },
+              // {
+              //   heading: "profileOverview",
+              //   route: "/crafted/pages/profile/overview",
+              // },
               // {
               //   heading: "projects",
               //   route: "/crafted/pages/profile/projects",
@@ -63,10 +67,6 @@ const MainMenuConfig: Array<MenuItem> = [
               //   heading: "activity",
               //   route: "/crafted/pages/profile/activity",
               // },
-              {
-                heading: "Orders",
-                route: "/crafted/pages/profile/orders",
-              },
             ],
           },
           {
