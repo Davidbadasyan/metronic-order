@@ -56,8 +56,7 @@
                       icon-name="arrow-down"
                       icon-class="fs-5 text-danger ms-n1"
                     />
-                    {{ row.statistics }} 
-                
+                    {{ row.statistics }}
                   </span>
                   <!--end::Label-->
                 </td>
@@ -180,7 +179,7 @@ export default defineComponent({
         name: 'Edit Order',
         params: { orderId: id },
       });
-    }; 
+    };
 
     return {
       table,

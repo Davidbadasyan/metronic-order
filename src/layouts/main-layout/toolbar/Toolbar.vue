@@ -30,6 +30,13 @@
           data-bs-target="#kt_modal_new_target"
           >Add Target</a
         >
+        <button
+          href="#"
+          class="btn btn-sm fw-bold btn-primary"
+          data-bs-toggle="modal"
+          @click="redirectToAddOrder"
+          >Add Order</button
+        >
         <!--end::Primary button-->
       </div>
       <!--end::Actions-->
@@ -43,6 +50,7 @@
 import { defineComponent } from "vue";
 import { toolbarWidthFluid } from "@/core/helpers/config";
 import KTPageTitle from "@/layouts/main-layout/toolbar/PageTitle.vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   name: "layout-toolbar",
@@ -50,8 +58,14 @@ export default defineComponent({
     KTPageTitle,
   },
   setup() {
+    const router = useRouter();
+    const redirectToAddOrder = () => {
+      router.push({name: 'Add Order'})
+    };
+
     return {
       toolbarWidthFluid,
+      redirectToAddOrder,
     };
   },
 });

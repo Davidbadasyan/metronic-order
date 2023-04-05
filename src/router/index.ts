@@ -126,6 +126,16 @@ const routes: Array<RouteRecordRaw> = [
               pageTitle: "Order Update",
             },
           },
+          {
+            path: "order/add",
+            name: "Add Order",
+            component: () =>
+            // @ts-ignore
+              import("@/views/crafted/pages/profile/OrderEdit.vue"),
+            meta: {
+              pageTitle: "Add Order",
+            },
+          },
         ],
       },
       {
