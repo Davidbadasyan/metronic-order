@@ -36,11 +36,11 @@ export const useAuthStore = defineStore("auth", () => {
 
   function login(credentials: User) {
     const params = {
-      'client_id': 'webClient',
-      'client_secret': 'webClientSecret',
-      'grant_type': 'password',
-      'username': credentials.email,
-      'password': credentials.password
+      client_id: 'webClient',
+      client_secret: 'webClientSecret',
+      grant_type: 'password',
+      username: credentials.email,
+      password: credentials.password
     };
     return ApiService.post('identity/connect/token', params, false, 'application/x-www-form-urlencoded;charset=utf-8')
       .then(({ data }) => {

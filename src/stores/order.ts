@@ -10,11 +10,10 @@ export const useOrderStore = defineStore('order', () => {
   }
 
   function createOrder(body) {
-    console.log(body);
     return ApiService.post('asdasd', body)
       .then(({ data }) => data)
       .catch(({ data }) => {
-        setError(data.errors);
+        setError(data?.errors);
       });
   }
 

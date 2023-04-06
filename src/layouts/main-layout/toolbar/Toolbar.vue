@@ -14,29 +14,28 @@
       <!--begin::Actions-->
       <div class="d-flex align-items-center gap-2 gap-lg-3">
         <!--begin::Secondary button-->
-        <a
+        <!-- <a
           href="#"
           class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
           data-bs-toggle="modal"
           data-bs-target="#kt_modal_create_app"
           >Rollover</a
-        >
+        > -->
         <!--end::Secondary button-->
         <!--begin::Primary button-->
-        <a
+        <!-- <a
           href="#"
           class="btn btn-sm fw-bold btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#kt_modal_new_target"
           >Add Target</a
-        >
-        <button
+        > -->
+        <!-- <button
           href="#"
           class="btn btn-sm fw-bold btn-primary"
           data-bs-toggle="modal"
           @click="redirectToAddOrder"
-          >Add Order</button
-        >
+          >Add Order</button> -->
         <!--end::Primary button-->
       </div>
       <!--end::Actions-->

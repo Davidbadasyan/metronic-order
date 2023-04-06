@@ -113,7 +113,7 @@ const routes: Array<RouteRecordRaw> = [
             // @ts-ignore
               import("@/views/crafted/pages/profile/Orders.vue"),
             meta: {
-              pageTitle: "Orders",
+              pageTitle: "Orders List",
             },
           },
           {

@@ -17,12 +17,7 @@ const MainMenuConfig: Array<MenuItem> = [
         keenthemesIcon: "element-11",
         bootstrapIcon: "bi-app-indicator",
       },
-      // {
-      //   heading: "layoutBuilder",
-      //   route: "/builder",
-      //   keenthemesIcon: "switch",
-      //   bootstrapIcon: "bi-layers",
-      // },
+
     ],
   },
   {
@@ -36,52 +31,8 @@ const MainMenuConfig: Array<MenuItem> = [
         bootstrapIcon: "bi-archive",
         sub: [
           {
-            sectionTitle: "profile",
-            route: "/profile",
-            sub: [
-              {
-                heading: "Orders",
-                route: "/crafted/pages/profile/orders",
-              },
-              // {
-              //   heading: "profileOverview",
-              //   route: "/crafted/pages/profile/overview",
-              // },
-              // {
-              //   heading: "projects",
-              //   route: "/crafted/pages/profile/projects",
-              // },
-              // {
-              //   heading: "campaigns",
-              //   route: "/crafted/pages/profile/campaigns",
-              // },
-              // {
-              //   heading: "documents",
-              //   route: "/crafted/pages/profile/documents",
-              // },
-              // {
-              //   heading: "connections",
-              //   route: "/crafted/pages/profile/connections",
-              // },
-              // {
-              //   heading: "activity",
-              //   route: "/crafted/pages/profile/activity",
-              // },
-            ],
-          },
-          {
-            sectionTitle: "wizards",
-            route: "/wizard",
-            sub: [
-              {
-                heading: "horizontal",
-                route: "/crafted/pages/wizards/horizontal",
-              },
-              {
-                heading: "vertical",
-                route: "/crafted/pages/wizards/vertical",
-              },
-            ],
+            heading: "Orders",
+            route: "/crafted/pages/profile/orders",
           },
         ],
       },
