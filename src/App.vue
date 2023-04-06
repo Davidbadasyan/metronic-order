@@ -8,6 +8,7 @@ import { RouterView } from "vue-router";
 import { useConfigStore } from "@/stores/config";
 import { useThemeStore } from "@/stores/theme";
 import { useBodyStore } from "@/stores/body";
+// import { useOrderStore } from "@/stores/order";
 import { themeConfigValue } from "@/core/helpers/config";
 import { initializeComponents } from "@/core/plugins/keenthemes";
 
@@ -20,7 +21,7 @@ export default defineComponent({
     const configStore = useConfigStore();
     const themeStore = useThemeStore();
     const bodyStore = useBodyStore();
-
+    // const orderStore = useOrderStore() 
     onBeforeMount(() => {
       /**
        * Overrides the layout config using saved data from localStorage

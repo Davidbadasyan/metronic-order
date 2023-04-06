@@ -7,50 +7,39 @@
             ref="formRef"
             class="form"
           >
-            <!--begin::Heading-->
-            <div class="mb-13 text-center">
-              <!--begin::Title-->
-              <h1 class="mb-3">Set First Target</h1>
-              <!--end::Title-->
-
-              <!--begin::Description-->
-              <div class="text-gray-400 fw-semobold fs-5">
-                If you need more info, please check
-                <a href="#" class="fw-bold link-primary">Project Guidelines</a>.
-              </div>
-              <!--end::Description-->
+          {{ targetData }}
+            <div class="mb-13">
+              <h1 class="mb-3">Add Order</h1>
             </div>
-            <!--end::Heading-->
-
-            <!--begin::Input group-->
-            <div class="d-flex flex-column mb-8 fv-row">
-              <!--begin::Label-->
+            <div class="row g-9">
+              <div class="col-md-2 flex-column mb-8 fv-row">
               <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-                <span class="required">Target Title</span>
-                <i
-                  class="fas fa-exclamation-circle ms-2 fs-7"
-                  data-bs-toggle="tooltip"
-                  title="Specify a target name for future usage and reference"
-                ></i>
+                <span class="required">Number</span>
               </label>
-              <!--end::Label-->
-
-              <el-form-item prop="targetTitle">
+              <el-form-item prop="number">
                 <el-input
-                  v-model="targetData.targetTitle"
+                  v-model="targetData.number"
                   placeholder="Enter Target Title"
-                  name="targetTitle"
+                  name="number"
                 ></el-input>
               </el-form-item>
             </div>
-            <!--end::Input group-->
-
-            <!--begin::Input group-->
+            <div class="col-md-2 flex-column mb-8 fv-row">
+              <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+                <span class="required">Description</span>
+              </label>
+              <el-form-item prop="description">
+                <el-input
+                  v-model="targetData.description"
+                  placeholder="Description"
+                  name="description"
+                ></el-input>
+              </el-form-item>
+            </div>
+            </div>
             <div class="row g-9 mb-8">
-              <!--begin::Col-->
               <div class="col-md-6 fv-row">
                 <label class="required fs-6 fw-semobold mb-2">Assign</label>
-
                 <el-form-item prop="assign">
                   <el-select
                     v-model="targetData.assign"
@@ -73,9 +62,6 @@
                   </el-select>
                 </el-form-item>
               </div>
-              <!--end::Col-->
-
-              <!--begin::Col-->
               <div class="col-md-6 fv-row">
                 <label class="required fs-6 fw-semobold mb-2">Due Date</label>
 
@@ -248,8 +234,7 @@
                 type="submit"
               >
                 <span v-if="!loading" class="indicator-label">
-                  Submit
-                  <KTIcon icon-name="arrow-right" icon-class="fs-3 ms-2 me-0" />
+                  Create
                 </span>
                 <span v-if="loading" class="indicator-progress">
                   Please wait...
@@ -269,9 +254,12 @@ import { getAssetPath } from "@/core/helpers/assets";
 import { defineComponent, ref } from "vue";
 import { hideModal } from "@/core/helpers/dom";
 import Swal from "sweetalert2/dist/sweetalert2.js";
+import { useOrderStore } from "@/stores/order";
+
 
 interface NewAddressData {
-  targetTitle: string;
+  number: number,
+  description: string;
   assign: string;
   dueDate: string;
   targetDetails: string;
@@ -285,9 +273,11 @@ export default defineComponent({
     const formRef = ref<null | HTMLFormElement>(null);
     const newTargetModalRef = ref<null | HTMLElement>(null);
     const loading = ref<boolean>(false);
+    const store = useOrderStore();
 
     const targetData = ref<NewAddressData>({
-      targetTitle: "",
+      number: 0,
+      description: '',
       assign: "",
       dueDate: "",
       targetDetails: "",
@@ -325,10 +315,14 @@ export default defineComponent({
       ],
     });
 
-    const submit = () => {
+    const submit = async () => {
       if (!formRef.value) {
         return;
       }
+      console.log(targetData.value);
+      
+      const res = await store.createOrder(targetData.value)
+      console.log(res);
 
       formRef.value.validate((valid: boolean) => {
         if (valid) {
