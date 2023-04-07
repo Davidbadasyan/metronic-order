@@ -1,170 +1,176 @@
 <template>
-    <el-form
-      id="kt_modal_new_target_form"
-      ref="formRef"
-      :model="targetData"
-      :rules="rules"
-      class="form"
-      @submit.prevent="submit()"
-    >
       <div class="row g-9">
-        <div class="col-md-2 flex-column mb-8 fv-row">
+        <div class="col-md-6 flex-column mb-8 fv-row">
           <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
             <span class="required">Number</span>
           </label>
           <el-form-item prop="number">
             <el-input
-              v-model="targetData.number"
+              v-model="orderData.number"
               placeholder="Enter Target Title"
               name="number"
             />
           </el-form-item>
         </div>
-        <div class="col-md-2 flex-column mb-8 fv-row">
+        <div class="col-md-6 flex-column mb-8 fv-row">
           <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-            <span class="required">Description</span>
+            <span class="required">Weight</span>
           </label>
-          <el-form-item prop="description">
+          <el-form-item prop="weight">
             <el-input
-              v-model="targetData.description"
-              placeholder="Description"
-              name="description"
+              v-model="orderData.weight"
+              placeholder="Weight"
+              name="weight"
             />
           </el-form-item>
         </div>
       </div>
-      <div class="row g-9 mb-8">
-        <div class="col-md-6 fv-row">
-          <label class="required fs-6 fw-semobold mb-2">Assign</label>
-          <el-form-item prop="assign">
-            <el-select
-              v-model="targetData.assign"
-              placeholder="Select a Team Member"
-              name="assign"
-              as="select"
-            >
-              <el-option value="">
-                Select user...
-              </el-option>
-              <el-option
-                label="Karina Clark"
-                value="1"
-              >
-                Karina Clark
-              </el-option>
-              <el-option
-                label="Robert Doe"
-                value="2"
-              >
-                Robert Doe
-              </el-option>
-              <el-option
-                label="Niel Owen"
-                value="3"
-              >
-                Niel Owen
-              </el-option>
-              <el-option
-                label="Olivia Wild"
-                value="4"
-              >
-                Olivia Wild
-              </el-option>
-              <el-option
-                label="Sean Bean"
-                value="5"
-              >
-                Sean Bean
-              </el-option>
-            </el-select>
-          </el-form-item>
-        </div>
-        <div class="col-md-6 fv-row">
-          <label class="required fs-6 fw-semobold mb-2">Due Date</label>
-  
-          <!--begin::Input-->
-          <div class="position-relative align-items-center">
-            <!--begin::Datepicker-->
-            <el-form-item prop="dueDate">
-              <el-date-picker
-                v-model="targetData.dueDate"
-                type="date"
-                placeholder="Select a date"
-                :teleported="false"
-                popper-class="override-styles"
-                name="dueDate"
-              />
-            </el-form-item>
-            <!--end::Datepicker-->
-          </div>
-          <!--end::Input-->
-        </div>
-        <!--end::Col-->
-      </div>
-      <!--begin::Input group-->
       <div class="d-flex flex-column mb-8">
-        <label class="fs-6 fw-semobold mb-2">Target Details</label>
+        <label class="fs-6 fw-semobold mb-2">Description</label>
   
-        <el-form-item prop="targetDetails">
+        <el-form-item prop="description">
           <el-input
-            v-model="targetData.targetDetails"
+            v-model="orderData.description"
             type="textarea"
             rows="3"
-            name="targetDetails"
-            placeholder="Type Target Details"
+            name="description"
+            placeholder="Type Description"
           />
         </el-form-item>
       </div>
-      <!--end::Input group-->
-  
-      <!--begin::Input group-->
-      <div class="d-flex flex-column mb-8 fv-row">
-        <!--begin::Label-->
-        <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-          <span class="required">Tags</span>
-          <i
-            class="fas fa-exclamation-circle ms-2 fs-7"
-            data-bs-toggle="tooltip"
-            title="Specify a target priorty"
-          />
-        </label>
-        <!--end::Label-->
-        <el-form-item prop="tags">
-          <el-select
-            v-model="targetData.tags"
-            multiple
-            filterable
-            allow-create
-            default-first-option
-            placeholder="Choose tags for your target"
+       <div class="row g-9">
+          <h3>Address</h3>
+        <div class="col-md-2 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">Street</span>
+          </label>
+          <el-form-item prop="street">
+            <el-input
+              v-model="orderData.address.street"
+              placeholder="Enter Street"
+              name="Street"
+            />
+          </el-form-item>
+        </div>
+        <div class="col-md-2 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">City</span>
+          </label>
+          <el-form-item prop="city">
+            <el-input
+              v-model="orderData.address.city"
+              placeholder="city"
+              name="city"
+            />
+          </el-form-item>
+        </div>
+        <div class="col-md-2 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">State</span>
+          </label>
+          <el-form-item prop="state">
+            <el-input
+              v-model="orderData.address.state"
+              placeholder="state"
+              name="state"
+            />
+          </el-form-item>
+        </div>
+        <div class="col-md-2 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">Country</span>
+          </label>
+          <el-form-item prop="country">
+            <el-input
+              v-model="orderData.address.country"
+              placeholder="Country"
+              name="country"
+            />
+          </el-form-item>
+        </div>
+        <div class="col-md-2 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">Zip Code</span>
+          </label>
+          <el-form-item prop="zipCode">
+            <el-input
+              v-model="orderData.address.zipCode"
+              placeholder="zipCode"
+              name="zipCode"
+            />
+          </el-form-item>
+        </div>
+      </div>
+      
+      <div class="row g-9" v-for="(item, index) in orderData.items" :key="index">
+        <h3>Items</h3>
+        <div class="col-md-3 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">Product Name</span>
+          </label>
+          <el-form-item prop="productName">
+            <el-input
+              v-model="item.productName"
+              placeholder="Product Name"
+              name="productName"
+            />
+          </el-form-item>
+        </div>
+        <div class="col-md-3 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">Unit Price</span>
+          </label>
+          <el-form-item prop="unitPrice">
+            <el-input
+              v-model="item.unitPrice"
+              placeholder="Unit Price"
+              name="unitPrice"
+            />
+          </el-form-item>
+        </div>
+        <div class="col-md-3 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">Dis Count</span>
+          </label>
+          <el-form-item prop="discount">
+            <el-input
+              v-model="item.discount"
+              placeholder="Dis Count"
+              name="discount"
+            />
+          </el-form-item>
+        </div>
+        <div class="col-md-2 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span class="required">Units</span>
+          </label>
+          <el-form-item prop="weight">
+            <el-input
+              v-model="item.units"
+              placeholder="Units"
+              name="units"
+            />
+          </el-form-item>
+        </div>
+        <div v-if="orderData.items.length > 1" class="col-md-1 flex-column mb-8 fv-row">
+          <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+            <span>Delete Item</span>
+          </label>
+          <button
+            class="btn btn-sm fw-bold btn-primary mb-3"
+            @click="deleteItem(index)"
           >
-            <el-option
-              label="Important"
-              value="important"
-            />
-            <el-option
-              label="Urgent"
-              value="urgent"
-            />
-            <el-option
-              label="High"
-              value="high"
-            />
-            <el-option
-              label="Low"
-              value="low"
-            />
-            <el-option
-              label="Medium"
-              value="medium"
-            />
-          </el-select>
-        </el-form-item>
+            Delete
+          </button>
+        </div>
       </div>
-      <!--end::Input group-->
-      <!--begin::Input group-->
-      <!--end::Input group-->
-      <!--begin::Actions-->
+        <button
+          type="button"
+          class="btn btn-primary"
+          @click="addItem"
+        >
+          Add Item
+        </button>
       <div class="d-flex text-center justify-content-end">
         <button
           id="kt_modal_new_target_cancel"
@@ -177,13 +183,13 @@
         <button
           :data-kt-indicator="loading ? 'on' : null"
           class="btn btn-lg btn-primary"
-          type="submit"
+          @click="submit()"
         >
           <span
             v-if="!loading"
             class="indicator-label"
           >
-            Create
+            Save
           </span>
           <span
             v-if="loading"
@@ -198,24 +204,34 @@
         <!--end::Button-->
       </div>
       <!--end::Actions-->
-    </el-form>
   </template>
 
   <script lang="ts">
   import { defineComponent, ref } from 'vue';
-  import Swal from 'sweetalert2/dist/sweetalert2.js';
   import { getAssetPath } from '@/core/helpers/assets';
-  import { hideModal } from '@/core/helpers/dom';
-  import { useOrderStore } from '@/stores/order';
+  import { useOrderStore } from '@/services/orderService';
   import { useRouter } from "vue-router";
 
-  interface NewAddressData {
-  number: number,
-  description: string;
-  assign: string;
-  dueDate: string;
-  targetDetails: string;
-  tags: Array<string>;
+  interface NewOrderData {
+    number: number,
+    weight: number,
+    description: string;
+    items: OrderItem[];
+    address: Address;
+  }
+  interface OrderItem {
+    productName: string;
+    unitPrice: number;
+    discount: number;
+    units: number;
+  }
+
+  interface Address {
+    street: string,
+    city: string,
+    state: string,
+    country: string,
+    zipCode: number,
   }
 
   export default defineComponent({
@@ -228,101 +244,97 @@
       const store = useOrderStore();
       const router = useRouter();
 
-      const targetData = ref<NewAddressData>({
+      const orderData = ref<NewOrderData>({
         number: 0,
+        weight: 0,
         description: '',
-        assign: '',
-        dueDate: '',
-        targetDetails: '',
-        tags: ['important', 'urgent'],
+        items: [],
+        address: {
+          street: '',
+          city: '',
+          state: '',
+          country: '',
+          zipCode: 0,
+        },
       });
 
       const rules = ref({
         number: [
           {
-            required: true,
+            // required: true,
             message: 'Please input Name',
             trigger: 'blur',
           },
         ],
         targetTitle: [
           {
-            required: true,
+            // required: true,
             message: 'Please input Activity name',
             trigger: 'blur',
           },
         ],
         assign: [
           {
-            required: true,
+            // required: true,
             message: 'Please select Activity zone',
             trigger: 'change',
           },
         ],
         dueDate: [
           {
-            required: true,
+            // required: true,
             message: 'Please select Activity zone',
             trigger: 'change',
           },
         ],
         tags: [
           {
-            required: true,
+            // required: true,
             message: 'Please select Activity zone',
             trigger: 'change',
           },
         ],
       });
 
-      const submit =  () => {
-        if (!formRef.value) {
-          return;
-        }
-
-        formRef.value.validate(async (valid: boolean) => {
-            if (valid) {
-            const res = await store.createOrder(targetData.value);
+      const submit = async () => {
+        // if (!formRef.value) {
+        //   return;
+        // }
+            const res = await store.createOrder(orderData.value);
             loading.value = true;
 
-            setTimeout(() => {
-              loading.value = false;
+            // setTimeout(() => {
+            //   loading.value = false;
 
-              Swal.fire({
-                text: 'Form has been successfully submitted!',
-                icon: 'success',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok, got it!',
-                heightAuto: false,
-                customClass: {
-                  confirmButton: 'btn btn-primary',
-                },
-              }).then(() => {
-                hideModal(newTargetModalRef.value);
-              });
-            }, 2000);
-          } else {
-            Swal.fire({
-              text: 'Sorry, looks like there are some errors detected, please try again.',
-              icon: 'error',
-              buttonsStyling: false,
-              confirmButtonText: 'Ok, got it!',
-              heightAuto: false,
-              customClass: {
-                confirmButton: 'btn btn-primary',
-              },
-            });
-            return false;
-          }
-        });
+            //   Swal.fire({
+            //     text: 'Form has been successfully submitted!',
+            //     icon: 'success',
+            //     buttonsStyling: false,
+            //     confirmButtonText: 'Ok, got it!',
+            //     heightAuto: false,
+            //     customClass: {
+            //       confirmButton: 'btn btn-primary',
+            //     },
+            //   }).then(() => {
+            //     hideModal(newTargetModalRef.value);
+            //   });
+            // }, 2000);
       };
 
       const redirectToOrdersList = () => {
         router.push({name: 'orders'})
       }
 
+      const addItem = () => {
+        const newItem: OrderItem = {productName: '', unitPrice: 0, discount: 0, units: 0}
+          orderData.value.items.push(newItem)
+      }
+      const deleteItem = (index: number) => {
+        orderData.value.items = orderData.value.items.filter((el,i) => index !== i)
+      }
+
       return {
-        targetData,
+        orderData,
         submit,
         loading,
         formRef,
@@ -330,6 +342,8 @@
         newTargetModalRef,
         getAssetPath,
         redirectToOrdersList,
+        addItem,
+        deleteItem,
       };
     },
   });

@@ -1,7 +1,6 @@
 <template>
   <KTMessengerDrawer />
   <KTActivityDrawer />
-  <KTToolButtons />
   <KTHelpDrawer />
 </template>
 
@@ -10,7 +9,6 @@ import { defineComponent } from "vue";
 import KTMessengerDrawer from "@/layouts/main-layout/extras/MessengerDrawer.vue";
 import KTActivityDrawer from "@/layouts/main-layout/drawers/ActivityDrawer.vue";
 import KTHelpDrawer from "@/layouts/main-layout/extras/HelpDrawer.vue";
-import KTToolButtons from "@/layouts/main-layout/extras/ToolButtons.vue";
 
 export default defineComponent({
   name: "global-drawers",
@@ -18,7 +16,6 @@ export default defineComponent({
     KTMessengerDrawer,
     KTActivityDrawer,
     KTHelpDrawer,
-    KTToolButtons,
   },
 });
 </script>

@@ -122,7 +122,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAssetPath } from '@/core/helpers/assets';
 
@@ -213,7 +213,9 @@ export default defineComponent({
     const redirectToAddOrder = () => {
       router.push({ name: 'Add Order' });
     };
-
+    onMounted(()=>{
+      console.log('get list');
+    })
     return {
       table,
       getAssetPath,
