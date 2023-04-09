@@ -30,11 +30,11 @@ class OrderFactory {
             productName: '',
             unitPrice: 0,
             discount: 0,
-            units: 0,
+            units: 1,
         }
 
         return item;
     }
 }
 
-export {OrderFactory}
+export { OrderFactory }

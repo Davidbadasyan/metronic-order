@@ -1,6 +1,8 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import ApiService from '@/core/services/ApiService';
+import orderService from "@/core/services/orderService";
+
 
 export const useOrderStore = defineStore('order', () => {
   const errors = ref({});
@@ -10,7 +12,8 @@ export const useOrderStore = defineStore('order', () => {
   }
 
   function getOrder(orderId) {
-    return ApiService.get(`orders/${orderId}`)
+    return orderService()
+      .get(`orders/${orderId}`)
       .then(({ data }) => data)
   }
 
