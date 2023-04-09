@@ -29,7 +29,7 @@
                   Weight
                 </th>
                 <th class="p-0 pb-3 min-w-100px text-end">
-                  Price
+                  Shipping Method
                 </th>
                 <th class="p-0 pb-3 min-w-175px text-end pe-12">
                   STATUS
@@ -40,11 +40,10 @@
               </tr>
             </thead>
             <!--end::Table head-->
-
             <!--begin::Table body-->
             <tbody>
               <template
-                v-for="(row, i) in table"
+                v-for="(order, i) in tableOrders"
                 :key="i"
               >
                 <tr>
@@ -52,55 +51,30 @@
                     <div class="d-flex align-items-center">
                       <div class="d-flex justify-content-start flex-column">
                         <span class="text-gray-400 fw-semibold d-block fs-7">
-                          {{ row.number }}</span>
+                          {{ order.number }}</span>
                       </div>
                     </div>
                   </td>
-
                   <td class="text-end pe-0">
                     <span
                       class="text-gray-600 fw-bold fs-6"
-                    >$ {{ row.price }}</span>
+                    >{{ order.weight }} {{ order.weightUnit }}</span>
                   </td>
-
                   <td class="text-end pe-0">
-                    <!--begin::Label-->
                     <span
-                      v-if="row.icon"
-                      class="badge badge-light-success fs-base"
-                    >
-                      <KTIcon
-                        icon-name="arrow-up"
-                        icon-class="fs-5 text-success ms-n1"
-                      />
-                      {{ row.statistics }} %
-                    </span>
-                    <!--end::Label-->
-                    <!--begin::Label-->
-                    <span
-                      v-else
-                      class="badge badge-light-danger fs-base"
-                    >
-                      <KTIcon
-                        icon-name="arrow-down"
-                        icon-class="fs-5 text-danger ms-n1"
-                      />
-                      {{ row.statistics }}
-                    </span>
-                    <!--end::Label-->
+                      class="text-gray-600 fw-bold fs-6"
+                    >{{ order.shippingMethod }}</span>
                   </td>
-
-                  <td class="text-end pe-12">
+                  <td class="text-end pe-0 ">
                     <span
-                      :class="`badge py-3 px-4 fs-7 badge-light-${row.status.state}`"
-                    >{{ row.status.label }}</span>
+                      class="text-gray-600 fw-bold fs-6"
+                    > {{ order.status }}</span>
                   </td>
-
                   <td class="text-end">
                     <button
                       href="#"
                       class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px"
-                      @click="redirectToUpdateOrder(i)"
+                      @click="redirectToUpdateOrder(order.id)"
                     >
                       <KTIcon
                         icon-name="black-right"
@@ -122,9 +96,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAssetPath } from '@/core/helpers/assets';
+import { useOrderStore } from '@/services/orderService';
+
+interface IOrder {
+  id: number,
+  number: string,
+  weight: number,
+  weightUnit: string,
+  status: string,
+  shippingMethod: string,
+}
 
 export default defineComponent({
   name: 'DefaultDashboardWidget10',
@@ -134,7 +118,8 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter();
-
+    const store = useOrderStore();
+    const tableOrders = ref<Array<IOrder>>([]);
     const table = [
       {
         number: 5464564,
@@ -213,11 +198,13 @@ export default defineComponent({
     const redirectToAddOrder = () => {
       router.push({ name: 'Add Order' });
     };
-    onMounted(()=>{
-      console.log('get list');
+    onMounted(async ()=>{
+      const result = await store.getOrders()
+      tableOrders.value = [...result.data]
     })
     return {
       table,
+      tableOrders,
       getAssetPath,
       redirectToUpdateOrder,
       redirectToAddOrder,

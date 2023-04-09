@@ -52,9 +52,8 @@ class ApiService {
    */
   public static get(
     resource: string,
-    slug = "" as string
   ): Promise<AxiosResponse> {
-    return ApiService.vueInstance.axios.get(`${resource}/${slug}`);
+    return ApiService.vueInstance.axios.get(`${resource}`);
   }
 
   /**

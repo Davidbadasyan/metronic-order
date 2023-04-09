@@ -117,7 +117,7 @@ const routes: Array<RouteRecordRaw> = [
             },
           },
           {
-            path: "order/update/:orderId",
+            path: "order/:orderId/update",
             name: "Edit Order",
             component: () =>
             // @ts-ignore

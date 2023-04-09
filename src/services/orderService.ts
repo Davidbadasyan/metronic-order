@@ -9,6 +9,16 @@ export const useOrderStore = defineStore('order', () => {
     errors.value = { ...error };
   }
 
+  function getOrder(orderId) {
+    return ApiService.get(`orders/${orderId}`)
+      .then(({ data }) => data)
+  }
+
+  function getOrders() {
+    return ApiService.get('orders')
+      .then(({ data }) => data)
+  }
+
   function createOrder(body) {
     return ApiService.post('orders', body)
       .then(({ data }) => data)
@@ -17,8 +27,15 @@ export const useOrderStore = defineStore('order', () => {
       });
   }
 
+  function updateOrder(order, orderId){
+    return ApiService.put(`orders/${orderId}`, order)
+  }
+
   return {
     errors,
     createOrder,
+    getOrder,
+    getOrders,
+    updateOrder,
   };
 });
