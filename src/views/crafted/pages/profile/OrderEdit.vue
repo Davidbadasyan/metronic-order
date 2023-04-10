@@ -8,7 +8,7 @@
         <el-input v-model="orderData.number" placeholder="Enter Target Title" name="number" />
       </el-form-item>
     </div>
-    <div class="col-md-6 flex-column mb-8 fv-row">
+    <div class="col-md-5 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
         <span class="required">Weight</span>
       </label>
@@ -16,7 +16,21 @@
         <el-input v-model="orderData.weight" placeholder="Weight" name="weight" />
       </el-form-item>
     </div>
+    <div class="col-md-1 flex-column mb-8 fv-row">
+      <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+        <span>Type</span>
+      </label>
+      <el-form-item prop="tags">
+        <!-- v-model="targetData.tags" -->
+        <el-select filterable allow-create default-first-option placeholder="Select">
+          <el-option v-for="(item, i) in countries" :key="i" :value="item.code">
+            {{ item.name }}
+          </el-option>
+        </el-select>
+      </el-form-item>
+    </div>
   </div>
+
   <div class="d-flex flex-column mb-8">
     <label class="fs-6 fw-semobold mb-2">Description</label>
 
@@ -139,6 +153,7 @@ import { getAssetPath } from '@/core/helpers/assets';
 import { useOrderStore } from '@/stores/order';
 import { useRouter, useRoute } from "vue-router";
 import { OrderFactory } from '@/models/orders/OrderFactory';
+import { countries } from "@/core/data/countries";
 
 
 export default defineComponent({
@@ -153,7 +168,7 @@ export default defineComponent({
     const router = useRouter();
     const route = useRoute();
     let orderData = ref<IOrderRequest>(OrderFactory.createDefaultOrder());
-    
+
     onMounted(async () => {
       orderId.value = route.params.orderId as string;
       if (orderId.value) {
@@ -237,6 +252,7 @@ export default defineComponent({
       redirectToOrdersList,
       addItem,
       deleteItem,
+      countries,
     };
   },
 });
