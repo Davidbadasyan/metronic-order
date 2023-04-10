@@ -136,9 +136,9 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted, computed } from 'vue';
 import { getAssetPath } from '@/core/helpers/assets';
-import { useOrderStore } from '@/services/orderService';
+import { useOrderStore } from '@/stores/order';
 import { useRouter, useRoute } from "vue-router";
-import {OrderFactory} from '@/models/orders/OrderFactory';
+import { OrderFactory } from '@/models/orders/OrderFactory';
 
 
 export default defineComponent({

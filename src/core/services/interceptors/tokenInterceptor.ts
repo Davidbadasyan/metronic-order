@@ -3,8 +3,10 @@ import JwtService from "@/core/services/JwtService";
 
 const tokenInterceptor = async (config) => {
   const token = await JwtService.getToken();
-  config.headers.common.authorization = `Bearer ${token}`;
-  config.headers.common['correlation-id'] = JwtService.correlationId;
+  if(config && config.headers && config.headers.common){
+    config.headers.common.authorization = `Bearer ${token}`;
+    config.headers.common['correlation-id'] = JwtService.correlationId;
+  }
   return config;
 };
 

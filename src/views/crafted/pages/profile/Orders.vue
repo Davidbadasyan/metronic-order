@@ -99,7 +99,7 @@
 import { defineComponent, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAssetPath } from '@/core/helpers/assets';
-import { useOrderStore } from '@/services/orderService';
+import { useOrderStore } from '@/stores/order';
 
 interface IOrder {
   id: number,

@@ -7,7 +7,6 @@ export default ({ url, version }) => {
     baseURL: `${url}/${version}`,
     headers: { Pragma: 'no-cache' },
   });
-
   instance.interceptors.request.use(tokenInterceptor);
   instance.interceptors.response.use((response) => response, authInterceptor);
   return instance;
