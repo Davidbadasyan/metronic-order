@@ -152,10 +152,6 @@ import { OrderFactory } from '@/models/orders/OrderFactory';
 import { countries } from "@/core/data/countries";
 
 
-interface PaymentMethod {
-  id: number;
-  name: string;
-}
 
 export default defineComponent({
   name: 'NewTargetModal',
@@ -168,9 +164,9 @@ export default defineComponent({
     const store = useOrderStore();
     const router = useRouter();
     const route = useRoute();
-    const paymentMethods = ref<PaymentMethod[]>([]);
-    const shippingMethods = ref<PaymentMethod[]>([]);
-    const weightUnits = ref<PaymentMethod[]>([]);
+    const paymentMethods = ref<IIdName[]>([]);
+    const shippingMethods = ref<IIdName[]>([]);
+    const weightUnits = ref<IIdName[]>([]);
     let orderData = ref<IOrderRequest>(OrderFactory.createDefaultOrder());
 
     onMounted(async () => {
@@ -187,8 +183,9 @@ export default defineComponent({
     const submit = async () => {
       loading.value = true;
       let res;
-      orderId.value ? res = await store.updateOrder(orderData.value, orderId.value) : 
+      orderId.value ? res = await store.updateOrder(orderData.value, orderId.value) :
       res = await store.createOrder(orderData.value);
+      loading.value = false;
       if (res) {
         loading.value = false;
         router.push({ name: 'orders' });
