@@ -198,9 +198,11 @@ export default defineComponent({
     const redirectToAddOrder = () => {
       router.push({ name: 'Add Order' });
     };
-    onMounted(async ()=>{
+    onMounted(async () => {
       const result = await store.getOrders()
-      tableOrders.value = [...result.data]
+      if (result) {
+        tableOrders.value = [...result.data]
+      }
     })
     return {
       table,

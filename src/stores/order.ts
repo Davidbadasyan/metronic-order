@@ -17,19 +17,19 @@ export const useOrderStore = defineStore('order', () => {
       .then(({ data }) => data)
   }
 
-  function getOrders() {
-    return orderService()
-      .get('orders')
-      .then(({ data }) => data)
-  }
+    function getOrders() {
+        return orderService()
+        .get('orders')
+        .then(({ data }) => data)
+        .catch(() => { });
+    }
 
   function createOrder(body) {
     return orderService()
-    .post('orders', body)
+      .post('orders', body)
       .then(({ data }) => data)
-      .catch(({ data }) => {
-        setError(data?.errors);
-      });
+      .catch(() => { });
+ 
   }
 
   function updateOrder(order, orderId){
