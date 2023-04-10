@@ -15,6 +15,7 @@ export const useOrderStore = defineStore('order', () => {
     return orderService()
       .get(`orders/${orderId}`)
       .then(({ data }) => data)
+      .catch(() => { });
   }
 
     function getOrders() {
@@ -35,6 +36,7 @@ export const useOrderStore = defineStore('order', () => {
   function updateOrder(order, orderId){
     return orderService()
         .put(`orders/${orderId}`, order)
+        .catch(() => { });
   }
 
   return {

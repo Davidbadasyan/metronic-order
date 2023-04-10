@@ -1,6 +1,6 @@
 import axios from 'axios';
 import tokenInterceptor from '@/core/services/interceptors/tokenInterceptor';
-import authInterceptor from '@/core/services/interceptors/tokenInterceptor';
+import authInterceptor from '@/core/services/interceptors/authInterceptor';
 
 export default ({ url, version }) => {
   const instance = axios.create({

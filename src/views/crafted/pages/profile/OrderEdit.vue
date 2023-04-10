@@ -69,7 +69,7 @@
     </div>
   </div>
 
-  <h3 v-if="orderData.items.length">Items</h3>
+  <h3 v-if="orderData.items && orderData.items.length">Items</h3>
   <div class="row g-9" v-for="(item, index) in orderData.items" :key="index">
     <div class="col-md-3 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
@@ -152,25 +152,8 @@ export default defineComponent({
     const store = useOrderStore();
     const router = useRouter();
     const route = useRoute();
-
     let orderData = ref<IOrderRequest>(OrderFactory.createDefaultOrder());
-    // let orderData = ref<NewOrderData>({
-    //   id: 0,
-    //   number: '',
-    //   weight: 0,
-    //   paymentMethodId: 1,
-    //   shippingMethodId: 1,
-    //   weightUnitId: 1,
-    //   description: '',
-    //   items: [{productName: '', unitPrice: 0, discount: 0, units: 0}],
-    //   address: {
-    //     street: '',
-    //     city: '',
-    //     state: '',
-    //     country: '',
-    //     zipCode: 0,
-    //   },
-    // });
+    
     onMounted(async () => {
       orderId.value = route.params.orderId as string;
       if (orderId.value) {
