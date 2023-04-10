@@ -18,25 +18,45 @@ export const useOrderStore = defineStore('order', () => {
       .catch(() => { });
   }
 
-    function getOrders() {
-        return orderService()
-        .get('orders')
-        .then(({ data }) => data)
-        .catch(() => { });
-    }
+  function getOrders() {
+    return orderService()
+      .get('orders')
+      .then(({ data }) => data)
+      .catch(() => { });
+  }
 
   function createOrder(body) {
     return orderService()
       .post('orders', body)
       .then(({ data }) => data)
       .catch(() => { });
- 
   }
 
-  function updateOrder(order, orderId){
+  function updateOrder(order, orderId) {
     return orderService()
-        .put(`orders/${orderId}`, order)
-        .catch(() => { });
+      .put(`orders/${orderId}`, order)
+      .catch(() => { });
+  }
+
+  function getPaymentMethods() {
+    return orderService()
+      .get('orders/lookups/paymentMethods')
+      .then(({ data }) => data)
+      .catch(() => { });
+  }
+
+  function getShippingMethods() {
+    return orderService()
+      .get('orders/lookups/shippingMethods')
+      .then(({ data }) => data)
+      .catch(() => { });
+  }
+
+  function getWeightUnits() {
+    return orderService()
+      .get('orders/lookups/weightUnits')
+      .then(({ data }) => data)
+      .catch(() => { });
   }
 
   return {
@@ -45,5 +65,8 @@ export const useOrderStore = defineStore('order', () => {
     getOrder,
     getOrders,
     updateOrder,
+    getPaymentMethods,
+    getShippingMethods,
+    getWeightUnits,
   };
 });

@@ -20,14 +20,10 @@
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
         <span>Type</span>
       </label>
-      <el-form-item prop="tags">
-        <!-- v-model="targetData.tags" -->
-        <el-select filterable allow-create default-first-option placeholder="Select">
-          <el-option v-for="(item, i) in countries" :key="i" :value="item.code">
-            {{ item.name }}
-          </el-option>
-        </el-select>
-      </el-form-item>
+      <!-- v-model="targetData.tags" -->
+      <el-select v-model="orderData.weightUnitId" filterable allow-create default-first-option placeholder="Select">
+        <el-option v-for="(item, i) in weightUnits" :key="i" :value="item.id" :label="item.name" />
+      </el-select>
     </div>
   </div>
 
@@ -156,6 +152,11 @@ import { OrderFactory } from '@/models/orders/OrderFactory';
 import { countries } from "@/core/data/countries";
 
 
+interface PaymentMethod {
+  id: number;
+  name: string;
+}
+
 export default defineComponent({
   name: 'NewTargetModal',
   components: {},
@@ -167,68 +168,33 @@ export default defineComponent({
     const store = useOrderStore();
     const router = useRouter();
     const route = useRoute();
+    const paymentMethods = ref<PaymentMethod[]>([]);
+    const shippingMethods = ref<PaymentMethod[]>([]);
+    const weightUnits = ref<PaymentMethod[]>([]);
     let orderData = ref<IOrderRequest>(OrderFactory.createDefaultOrder());
 
     onMounted(async () => {
       orderId.value = route.params.orderId as string;
+      paymentMethods.value = await store.getPaymentMethods();
+      shippingMethods.value = await store.getShippingMethods();
+      weightUnits.value = await store.getWeightUnits();
       if (orderId.value) {
         const order = await store.getOrder(orderId.value)
         orderData.value = { ...order }
       }
     })
-    const rules = ref({
-      number: [
-        {
-          // required: true,
-          message: 'Please input Name',
-          trigger: 'blur',
-        },
-      ],
-      targetTitle: [
-        {
-          // required: true,
-          message: 'Please input Activity name',
-          trigger: 'blur',
-        },
-      ],
-      assign: [
-        {
-          // required: true,
-          message: 'Please select Activity zone',
-          trigger: 'change',
-        },
-      ],
-      dueDate: [
-        {
-          // required: true,
-          message: 'Please select Activity zone',
-          trigger: 'change',
-        },
-      ],
-      tags: [
-        {
-          // required: true,
-          message: 'Please select Activity zone',
-          trigger: 'change',
-        },
-      ],
-    });
 
     const submit = async () => {
       loading.value = true;
-      if (orderId.value) {
-        const res = await store.updateOrder(orderData.value, orderId.value)
-        if (res) {
-          loading.value = false;
-          return router.push({ name: 'orders' });
-        }
-      }
-      const res = await store.createOrder(orderData.value);
+      let res;
+      orderId.value ? res = await store.updateOrder(orderData.value, orderId.value) : 
+      res = await store.createOrder(orderData.value);
       if (res) {
         loading.value = false;
-        router.push({ name: 'orders' })
+        router.push({ name: 'orders' });
       }
     };
+
 
     const redirectToOrdersList = () => {
       router.push({ name: 'orders' })
@@ -246,13 +212,15 @@ export default defineComponent({
       submit,
       loading,
       formRef,
-      rules,
       newTargetModalRef,
       getAssetPath,
       redirectToOrdersList,
       addItem,
       deleteItem,
       countries,
+      paymentMethods,
+      shippingMethods,
+      weightUnits,
     };
   },
 });
