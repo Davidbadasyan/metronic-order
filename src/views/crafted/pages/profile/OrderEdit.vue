@@ -2,7 +2,7 @@
   <div class="row g-9">
     <div class="col-md-6 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Number</span>
+        <span >Number</span>
       </label>
       <el-form-item prop="number">
         <el-input v-model="orderData.number" placeholder="Enter Target Title" name="number" />
@@ -10,7 +10,7 @@
     </div>
     <div class="col-md-5 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Weight</span>
+        <span >Weight</span>
       </label>
       <el-form-item prop="weight">
         <el-input v-model="orderData.weight" placeholder="Weight" name="weight" />
@@ -21,12 +21,31 @@
         <span>Type</span>
       </label>
       <!-- v-model="targetData.tags" -->
-      <el-select v-model="orderData.weightUnitId" filterable allow-create default-first-option placeholder="Select">
+      <el-select v-model="orderData.weightUnitId" filterable allow-create  placeholder="Select">
         <el-option v-for="(item, i) in weightUnits" :key="i" :value="item.id" :label="item.name" />
       </el-select>
     </div>
   </div>
-
+  <div class="row g-9">
+    <div class="col-md-6 flex-column mb-8 fv-row">
+      <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+        <span>Shipping Methods</span>
+      </label>
+      <!-- v-model="targetData.tags" -->
+      <el-select v-model="orderData.shippingMethodId" filterable allow-create  placeholder="Select Shipping Method">
+        <el-option v-for="(item, i) in shippingMethods" :key="i" :value="item.id" :label="item.name" />
+      </el-select>
+    </div>
+    <div class="col-md-6 flex-column mb-8 fv-row">
+      <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
+        <span>Payment Methods</span>
+      </label>
+      <!-- v-model="targetData.tags" -->
+      <el-select v-model="orderData.paymentMethodId" filterable allow-create  placeholder="Select Payment Method">
+        <el-option v-for="(item, i) in paymentMethods" :key="i" :value="item.id" :label="item.name" />
+      </el-select>
+    </div>
+  </div>
   <div class="d-flex flex-column mb-8">
     <label class="fs-6 fw-semobold mb-2">Description</label>
 
@@ -39,7 +58,7 @@
     <h3>Address</h3>
     <div class="col-md-2 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Street</span>
+        <span >Street</span>
       </label>
       <el-form-item prop="street">
         <el-input v-model="orderData.address.street" placeholder="Enter Street" name="Street" />
@@ -47,7 +66,7 @@
     </div>
     <div class="col-md-2 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">City</span>
+        <span >City</span>
       </label>
       <el-form-item prop="city">
         <el-input v-model="orderData.address.city" placeholder="city" name="city" />
@@ -55,7 +74,7 @@
     </div>
     <div class="col-md-2 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">State</span>
+        <span >State</span>
       </label>
       <el-form-item prop="state">
         <el-input v-model="orderData.address.state" placeholder="state" name="state" />
@@ -63,7 +82,7 @@
     </div>
     <div class="col-md-2 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Country</span>
+        <span >Country</span>
       </label>
       <el-form-item prop="country">
         <el-input v-model="orderData.address.country" placeholder="Country" name="country" />
@@ -71,7 +90,7 @@
     </div>
     <div class="col-md-2 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Zip Code</span>
+        <span >Zip Code</span>
       </label>
       <el-form-item prop="zipCode">
         <el-input v-model="orderData.address.zipCode" placeholder="zipCode" name="zipCode" />
@@ -83,7 +102,7 @@
   <div class="row g-9" v-for="(item, index) in orderData.items" :key="index">
     <div class="col-md-3 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Product Name</span>
+        <span >Product Name</span>
       </label>
       <el-form-item prop="productName">
         <el-input v-model="item.productName" placeholder="Product Name" name="productName" />
@@ -91,7 +110,7 @@
     </div>
     <div class="col-md-3 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Unit Price</span>
+        <span >Unit Price</span>
       </label>
       <el-form-item prop="unitPrice">
         <el-input v-model="item.unitPrice" placeholder="Unit Price" name="unitPrice" />
@@ -99,7 +118,7 @@
     </div>
     <div class="col-md-3 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Dis Count</span>
+        <span >Dis Count</span>
       </label>
       <el-form-item prop="discount">
         <el-input v-model="item.discount" placeholder="Dis Count" name="discount" />
@@ -107,7 +126,7 @@
     </div>
     <div class="col-md-2 flex-column mb-8 fv-row">
       <label class="d-flex align-items-center fs-6 fw-semobold mb-2">
-        <span class="required">Units</span>
+        <span >Units</span>
       </label>
       <el-form-item prop="weight">
         <el-input v-model="item.units" placeholder="Units" name="units" />
@@ -154,7 +173,7 @@ import { countries } from "@/core/data/countries";
 
 
 export default defineComponent({
-  name: 'NewTargetModal',
+  name: 'OrderEdit',
   components: {},
   setup() {
     const formRef = ref<null | HTMLFormElement>(null);

@@ -25,9 +25,9 @@
       <div class="fv-row mb-10">
         <div class="d-flex flex-stack mb-2">
           <label class="form-label fw-bold text-dark fs-6 mb-0">Password</label>
-          <router-link to="/password-reset" class="link-primary fs-6 fw-bold">
+          <!-- <router-link to="/password-reset" class="link-primary fs-6 fw-bold">
             Forgot Password ?
-          </router-link>
+          </router-link> -->
         </div>
         <Field tabindex="2" class="form-control form-control-lg form-control-solid" type="password" name="password"
           autocomplete="off" />

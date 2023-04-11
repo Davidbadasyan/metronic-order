@@ -6,7 +6,7 @@
         Add Order
       </button>
     </div>
-    <div class="card card-flush" :class="className">
+    <div v-if="isEmpty" class="card card-flush" :class="className">
       <!--begin::Body-->
       <div class="card-body pt-6">
         <!--begin::Table container-->
@@ -66,11 +66,14 @@
       </div>
       <!--end: Card Body-->
     </div>
+    <div v-else class="card card-flush align-items-center">
+      <h4>No results found, please Add order</h4>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref } from 'vue';
+import { defineComponent, onMounted, ref ,computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { getAssetPath } from '@/core/helpers/assets';
 import { useOrderStore } from '@/stores/order';
@@ -111,11 +114,15 @@ export default defineComponent({
         tableOrders.value = [...result.data]
       }
     })
+    const isEmpty = computed(() => {
+      return tableOrders.value.length
+    });
     return {
       tableOrders,
       getAssetPath,
       redirectToUpdateOrder,
       redirectToAddOrder,
+      isEmpty,
     };
   },
 });
